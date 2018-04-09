@@ -88,7 +88,7 @@ Page({
   loadData() {
     var _this = this;
     wx.showLoading({
-      title:'详情加载中'
+      title:'拼命加载中'
     });
     var thePage = getCurrentPages();
     thePage = thePage[thePage.length - 1]
@@ -257,9 +257,9 @@ Page({
         title: '请先登录',
       })
     }
-    var is_collected = this.data.is_collect
+    var is_collect = this.data.is_collect;
     wx.request({
-      url: !is_collected ? topicCollectionApi() : deleteTopicCollectionApi(),
+      url: !is_collect ? topicCollectionApi() : deleteTopicCollectionApi(),
       method: 'POST',
       data:{
         accesstoken: token,
@@ -267,7 +267,14 @@ Page({
       },
       success:res=>{
         if(res.data.success){
-          this.loadData();
+          // this.loadData();
+          wx.showToast({
+            icon: 'none',
+            title: !is_collect?'收藏成功':'取消收藏',
+          })
+          this.setData({
+            is_collect:!is_collect
+          })
         }else{
           wx.showToast({
             icon: 'none',
