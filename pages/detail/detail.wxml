@@ -1,0 +1,67 @@
+<!--pages/detail/detail.wxml-->
+<view class="pannel info">
+  <view class="title">标题</view>
+  <view class="content">
+      <view class="topic-title">{{title}}</view>
+      <view class="auth">
+        <view class="auth_img" data-name="{{auth.loginname}}" bind:tap="toUserDetail">
+          <image src="{{auth.avatar_url}}"></image>
+        </view>
+        <view class="auth_name">{{auth.loginname}}</view>
+      </view>
+      <view class="other">
+          <view>创建时间 :  {{create_at||'未知时间'}}</view>
+          <view>最后回复 :  {{last_reply_at||'未知时间'}}</view>
+          <view>访问统计 :  {{visit_count||'未知'}}</view>
+          <button class="btn-collect" wx:if="{{!is_collect}}" bind:tap="toogleCollect">收藏</button>
+          <button class="btn-collected" wx:if="{{is_collect}}" bind:tap="toogleCollect">已收藏</button>
+      </view>
+  </view>
+</view>
+<view class="pannel main">
+  <view class="title">正文</view>
+  <view class="content">
+    <rich-text nodes="{{content}}"></rich-text>
+  </view>
+</view>
+<view class="pannel replies">
+  <view class="title">
+    <text>用户回复</text>
+    <view class="reply-count">{{reply_count}}</view>
+  </view>
+  <view class="content">
+    <view class="replies-item" wx:key="{{index}}" wx:for="{{replies}}">
+      <view class="reply-auth">
+          <view class="reply-auth-img"  data-name="{{item.author.loginname}}" bind:tap="toUserDetail">
+            <image src="{{item.author.avatar_url}}"></image>
+          </view>
+          <view class="reply-auth-name">{{item.author.loginname}}</view>
+        <view class="create-at">{{item.create_at}}</view>
+      </view>
+      <rich-text nodes="{{item.content}}"></rich-text>
+      <view class="up">
+        <view>
+          <text data-id="{{item.id}}" class="toogle-up" bind:tap="toogleUp">
+            <text wx:if="{{!item.is_uped}}">赞</text>
+            <text class="uped" wx:if="{{item.is_uped}}">已赞</text>
+          </text>
+          <text class="size">{{item.ups.length}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+
+<view class='pannel my_reply'>
+  <view class='title'>参与回复</view>
+  <view class="content">
+    <textarea 
+      id="reply-area" 
+      auto-height="{{true}}" 
+      class="reply-input"
+      value="{{myReply}}"
+      bindinput="handleReplyAreaInput">
+    </textarea>
+    <button type="primary" class="reply-button" bind:tap="handleReplyBtnTap">回复</button>
+  </view>
+</view>

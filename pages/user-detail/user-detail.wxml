@@ -1,0 +1,45 @@
+<!--pages/user-detail/user-detail.wxml-->
+<view class="pannel user-info">
+  <view class="pannel-title">基本信息</view>
+  <view class="pannel-content">
+    <view class="user-avatar">
+      <image src="{{avatar_url}}"></image>
+    </view>
+    <view class="user-name">{{username}}</view>
+    <view class="create-at">{{create_at}}</view>
+  </view>
+</view>
+<view class="pannel recent-replies">
+  <view class="pannel-title">最近回复</view>
+  <view class="pannel-content">
+    <view 
+      wx:key="{{index}}" 
+      class="item"
+      data-id="{{item.id}}"
+      bind:tap="toTopicDetail"
+      wx:for="{{recent_replies}}">
+      {{item.title}}
+      <view class="last-reply-at">
+        最后回复: 
+        <text class="time">{{item.last_reply_at}}</text>
+      </view>
+    </view>
+  </view>
+</view>
+<view class="pannel recent-topics">
+  <view class="pannel-title">最近创建话题</view>
+  <view class="pannel-content">
+    <view 
+      wx:key="{{index}}" 
+      class="item" 
+      data-id="{{item.id}}"
+      bind:tap="toTopicDetail"
+      wx:for="{{recent_topics}}">
+      {{item.title}}
+      <view class="last-reply-at">
+        最后回复: 
+        <text class="time">{{item.last_reply_at}}</text>
+      </view>
+    </view>
+  </view>
+</view>

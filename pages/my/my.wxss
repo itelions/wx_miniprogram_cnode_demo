@@ -1,0 +1,89 @@
+/* pages/my/my.wxss */
+page{
+  background: #eee;
+}
+.top{
+  background: #666;
+  padding: 30rpx 0;
+}
+.top>view{
+  margin: 20rpx auto;
+  text-align: center;
+}
+.my-avatar{
+  width: 200rpx;
+  height: 200rpx;
+  border-radius: 50%;
+  background: #aaa;
+  overflow: hidden;
+  border:5rpx solid #eee;
+}
+
+.my-avatar image{
+  width: 100%;
+  height: 100%;
+}
+
+.top .username{
+  font-size: 50rpx;
+  color: #fff;
+}
+
+.my-pannel{
+  margin: 20rpx 0;
+  padding: 20rpx 40rpx;
+  background: #fff;
+}
+
+.my-pannel .pannel-item{
+  text-indent: 40rpx;
+  height: 100rpx;
+  line-height: 100rpx;
+  border-bottom: 1rpx solid #ccc;
+}
+
+.my-pannel .pannel-item-hover{
+  background: #aaa;
+  color: #fff;
+}
+
+.my-pannel .pannel-item:last-of-type{
+  border-bottom:0;
+}
+
+.login-control button{
+  margin: 20rpx;
+}
+
+.collection-item{
+  height: 100rpx;
+  padding: 0 40rpx;
+  position: relative;
+  padding-right: 120rpx;
+  font-size: 32rpx;
+  border-bottom:1px solid #ddd;
+  line-height: 100rpx;
+  overflow: hidden;
+}
+
+.collection-item:last-of-type{
+   border-bottom: 0;
+}
+
+.collection-item .delete{
+  position: absolute;
+  top:20rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  padding: 0 20rpx;
+  color: #fff;
+  right: 20rpx;
+  background: red;
+  border-radius: 10rpx;
+}
+
+.no-collection{
+  height: 200rpx;
+  line-height: 200rpx;
+  text-align: center;
+}

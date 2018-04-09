@@ -1,0 +1,42 @@
+/* pages/login/login.wxss */
+.cnode-logo{
+  margin: 0 40rpx;
+}
+.title{
+  margin: 0 40rpx;
+  font-size: 34rpx;
+  text-align: center;
+  color: #333;
+}
+.cnode-logo image{
+  width: 100%;
+}
+.input-area{
+  padding: 20rpx;
+  display: flex;
+}
+.input-area input{
+  text-indent: 40rpx;
+  height: 96rpx;
+  line-height: 100rpx;
+  flex: 1;
+  border: 1px solid #80bd01;
+  border-right: 0;
+  border-top-left-radius: 10rpx;
+  border-bottom-left-radius: 10rpx;
+}
+.input-area .scan{
+  height: 100rpx;
+  line-height: 100rpx;
+  border-radius: 0;
+  width: 200rpx;
+  padding: 0;
+  color: #fff;
+  text-align: center;
+  border-top-right-radius: 10rpx;
+  border-bottom-right-radius: 10rpx;
+  background: #80bd01;
+}
+.login-btn{
+  margin: 40rpx 20rpx;
+}

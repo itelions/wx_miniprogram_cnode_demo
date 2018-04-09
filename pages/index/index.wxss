@@ -1,0 +1,108 @@
+/**index.wxss**/
+page{
+  background: #e1e1e1;
+  width: 100%;
+  height: 100%;
+}
+.container{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.topic-nav{
+  width: 100%;
+  height: 80rpx;
+  left: 0;
+  top: 0;
+  z-index: 1;
+  line-height: 80rpx;
+  background: #666;
+  color:#eee;
+  display: flex;
+}
+.topic-nav>view{
+  text-align: center;
+  position: relative;
+  flex: 1;
+}
+.topic-nav>.active{
+  color: #fff;
+}
+.topic-nav>.active::after{
+  position: absolute;
+  content: '';
+  height: 10rpx;
+  width: 100%;
+  background: #80bd01;
+  left: 0;
+  bottom:0;
+}
+
+.topic-container{
+  flex: 1;
+  width: 100%;
+  padding: 0 15rpx;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+.topic-container .topic-list{
+  height: 100%;
+}
+.topic-pannel{
+  background: #f6f6f6;
+  margin-top: 20rpx;
+  border-radius: 4px;
+  overflow: hidden;
+}
+.topic-item{
+  height: 150rpx;
+  padding: 0 15rpx;
+  border-radius: 0;
+  box-sizing: border-box;
+  display: flex;
+  background: #fff;
+  border-bottom: 1rpx solid #ddd;
+}
+.topic-item.active{
+  background: #eee;
+}
+.topic-pannel>.topic-item:last-of-type{
+  border-bottom:0 solid #000;
+}
+.topic-item>view{
+  float: left;
+}
+.topic-item .user{
+  width: 120rpx;
+  margin-top: 15rpx;
+  margin-right: 12rpx;
+  border-radius: 10rpx;
+  height: 120rpx;
+  background: #ddd;
+  overflow: hidden;
+}
+.topic-item .user image{
+  width: 100%;
+  height: 100%;
+}
+.topic-item .title{
+  margin-top: 15rpx;
+  flex: 1;
+  font-size: 36rpx;
+  height: 120rpx;
+  overflow: hidden;
+  line-height: 60rpx;
+}
+.topic-item .mark{
+  background: #80bd01;
+  color: #fff;
+  border-radius: 10rpx;
+  margin-left: 10rpx;
+  font-size: 34rpx;
+  margin-top: 40rpx;
+  line-height: 60rpx;
+  text-align: center;
+  height: 60rpx;
+  width: 80rpx;
+}

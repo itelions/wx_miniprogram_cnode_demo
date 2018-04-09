@@ -1,0 +1,42 @@
+<!--index.wxml-->
+<view class="container">
+  <view class="topic-nav">
+    <view 
+      wx:key="{{index}}" 
+      class="{{params.tab==item.tab?'active':''}}"
+      bind:tap="handleTabChange" 
+      data-tab="{{item.tab}}" 
+      wx:for="{{tabs}}">
+      {{item.name}}
+    </view>
+  </view>
+  <view class="topic-container">
+    <scroll-view 
+      scroll-y 
+      class="topic-list"
+      scroll-top="{{scrollTop}}"
+      bindscrolltolower="loadMore">
+      <view class="topic-pannel" >  
+        <view
+          bind:tap = "toDetail"
+          data-id = "{{item.id}}"
+          class="topic-item" 
+          wx:key="{{index}}"
+          hover-class="active"
+          wx:for="{{dataList}}">
+          <view 
+            class="user"
+            data-username="{{item.author.loginname}}"
+            catch:tap="toUserDetail"
+            hover-stop-propagation="{{true}}">
+            <image src="{{item.author.avatar_url}}"></image>
+          </view>
+          <view class="title">{{item.title||'未知标题'}}</view>
+          <view class="mark">{{item.tab}}</view>
+        </view>
+      </view>
+      <view wx:if="{{loadingState=='no_more'}}">已加载全部内容</view>
+      <button wx:if="{{loadingState=='fail'}}" bind:tap="getTopics">重新加载</button>
+    </scroll-view>
+  </view>
+</view>

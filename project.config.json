@@ -1,0 +1,62 @@
+{
+	"description": "项目配置文件。",
+	"setting": {
+		"urlCheck": true,
+		"es6": true,
+		"postcss": true,
+		"minified": true,
+		"newFeature": true
+	},
+	"compileType": "miniprogram",
+	"libVersion": "1.9.94",
+	"appid": "wx98fe9eeca4efbda4",
+	"projectname": "cnode_demo",
+	"isGameTourist": false,
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
+		"game": {
+			"currentL": -1,
+			"list": []
+		},
+		"miniprogram": {
+			"current": 0,
+			"list": [
+				{
+					"id": -1,
+					"name": "“ 我的 ” tab页面 调试",
+					"pathName": "pages/my/my",
+					"query": ""
+				},
+				{
+					"id": 1,
+					"name": "登录页面页面 调试",
+					"pathName": "pages/login/login",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "话题详情页面 调试",
+					"pathName": "pages/detail/detail",
+					"query": "topicid=5ac6343f0ab0448f0fe3f8b3"
+				},
+				{
+					"id": -1,
+					"name": "用户详情页面 调试",
+					"pathName": "pages/user-detail/user-detail",
+					"query": "username=Young-Ward"
+				}
+			]
+		}
+	}
+}

@@ -1,0 +1,10 @@
+<!--pages/login/login.wxml-->
+<view class="cnode-logo">
+  <image src="https://cnodejs.org/public/images/cnodejs.svg"></image>
+</view>
+<view class="title">输入Cnode社区个人设置中的Access Token</view>
+<view class="input-area">
+  <input value="{{token}}" bind:blur="setTokenFromInput"></input>
+  <view class="scan" bind:tap="scan">扫描</view>
+</view>
+<button type="primary" class="login-btn" bind:tap="login">登录</button>

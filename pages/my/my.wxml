@@ -1,0 +1,55 @@
+<!--pages/my/my.wxml-->
+<view class="top">
+    <view class="my-avatar">
+      <image src="{{userInfo.avatar_url||''}}"></image>
+    </view>
+    <view class="username">{{userInfo.loginname||'未登录'}}</view>
+</view>
+<view class="my-pannel" wx:if="{{hastoken}}">
+  <view 
+    class="pannel-item" 
+    hover-class="pannel-item-hover" 
+    data-type="collections"
+    data-title="话题收藏"
+    bind:tap="showDialog">
+    话题收藏
+  </view>
+  <view 
+    class="pannel-item" 
+    hover-class="pannel-item-hover">
+    <!-- data-type="messages"
+    data-title="消息通知"
+    bind:tap="showDialog" -->
+    消息通知
+  </view>
+</view>
+<view class="login-control">
+  <button class="login" wx:if="{{!hastoken}}" type="primary" bind:tap='toLogin'>登录</button> 
+  <button class="logout" wx:if="{{hastoken}}" type="warn" bind:tap="clearLoginInfo">注销</button>
+</view>
+<dialog 
+  bind:dialogclose="handleDialogclose"
+  title="{{dialogTitle}}" 
+  visible="{{dialogVisible}}">
+  <view wx:if="{{dialogContentType == 'collections'}}">
+    <view 
+      class="collection-item" 
+      wx:key="index"
+      data-id="{{item.id}}"
+      bind:tap="toCollectedTopic"
+      wx:for="{{collections}}">
+      {{item.title}}
+      <view 
+        class="delete" 
+        data-id="{{item.id}}" 
+        catch:tap="handleCollectionDelete">
+        删除
+      </view>
+    </view>
+    <view 
+      class="no-collection" 
+      wx:if="{{!collections.length}}">
+      暂无收藏
+    </view>
+  </view>
+</dialog>
