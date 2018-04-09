@@ -1,7 +1,6 @@
 // pages/user-detail/user-detail.js
 const { formatTime } = require('./../../utils/util.js');
 const { userDetailApi } = require('./../../utils/api.js');
-// const mokeUser = require('./../../utils/moke_user.js');
 
 Page({
 

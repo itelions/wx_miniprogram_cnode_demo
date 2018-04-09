@@ -1,5 +1,4 @@
 // pages/detail/detail.js
-// const mokeData = require('./../../utils/topic_detail.js')
 const { formatTime } = require('./../../utils/util.js');
 const { topicDetailApi, topicReplyApi, replyUpsApi, topicCollectionApi, deleteTopicCollectionApi } = require('./../../utils/api.js')
 const app = getApp();

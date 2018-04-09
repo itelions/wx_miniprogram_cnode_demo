@@ -1,6 +1,6 @@
 // pages/my/my.js
 const app = getApp();
-const mokeCollections = require('./../../utils/moke_collections.js');
+
 const { deleteTopicCollectionApi, userTopicCollectionsApi, myMessageApi } = require('./../../utils/api.js');
 
 const { clearMyInfo, setMyinfoFromHttp } = require('./../../service/MyService.js')
