@@ -138,9 +138,15 @@ page{
 }
 .reply-input{
   min-height: 300rpx;
+  width: 100%;
   box-sizing: border-box;
   padding: 20rpx;
+  margin-bottom: 40rpx;
 }
 .reply-button{
   margin: 20rpx;
+}
+
+.my_reply .show-type-area{
+  padding-bottom: 520rpx;
 }

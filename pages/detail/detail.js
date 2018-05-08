@@ -20,7 +20,8 @@ Page({
     reply_count: 0,
     scrollTop: 0,
     token: '',
-    myReply: ''
+    myReply: '',
+    showTypeArea:false
   },
 
   /**
@@ -176,6 +177,19 @@ Page({
         if (!result.cancel) this.replySubmit(replyText);
       }
     })
+  },
+  //
+  handleReplyAreaFocus(){
+    this.setData({ showTypeArea:true});
+    setTimeout(_=>{
+      wx.pageScrollTo({
+        scrollTop: 1000000,
+        duration:0
+      })
+    },100)
+  },
+  handleReplyAreaBlur(){
+    this.setData({ showTypeArea: false });
   },
   // 提交回复
   replySubmit(text) {

@@ -54,12 +54,15 @@
 
 <view class='pannel my_reply'>
   <view class='title'>参与回复</view>
-  <view class="content">
+  <view class="{{showTypeArea?'content show-type-area':'content'}}" >
     <textarea 
       id="reply-area" 
       auto-height="{{true}}" 
       class="reply-input"
       value="{{myReply}}"
+      maxlength="-1"
+      bind:focus="handleReplyAreaFocus"
+      bind:blur="handleReplyAreaBlur"
       bindinput="handleReplyAreaInput">
     </textarea>
     <button type="primary" class="reply-button" bind:tap="handleReplyBtnTap">回复</button>
