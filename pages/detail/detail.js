@@ -21,9 +21,9 @@ Page({
     scrollTop: 0,
     token: '',
     myReply: '',
-    showTypeArea:false
+    platform: app.globalData.platform,
+    showTypeArea: false
   },
-
   /**
    * 生命周期函数--监听页面加载
    */
@@ -88,7 +88,7 @@ Page({
   loadData() {
     var _this = this;
     wx.showLoading({
-      title:'拼命加载中'
+      title: '拼命加载中'
     });
     var thePage = getCurrentPages();
     thePage = thePage[thePage.length - 1]
@@ -96,7 +96,7 @@ Page({
     this.setData({ topic_id: topicid })
     wx.request({
       url: topicDetailApi(topicid),
-      data:{
+      data: {
         accesstoken: app.globalData.my.accessToken || ''
       },
       success(res) {
@@ -179,16 +179,18 @@ Page({
     })
   },
   //
-  handleReplyAreaFocus(){
-    this.setData({ showTypeArea:true});
-    setTimeout(_=>{
+  handleReplyAreaFocus() {
+    if (this.data.platform !== 'android') return
+    this.setData({ showTypeArea: true });
+    setTimeout(_ => {
       wx.pageScrollTo({
         scrollTop: 1000000,
-        duration:0
+        duration: 0
       })
-    },100)
+    }, 100)
   },
-  handleReplyAreaBlur(){
+  handleReplyAreaBlur() {
+    if (this.data.platform !== 'android') return
     this.setData({ showTypeArea: false });
   },
   // 提交回复
@@ -238,33 +240,33 @@ Page({
 
     wx.request({
       url: replyUpsApi(reply_id),
-      method:'POST',
+      method: 'POST',
       data: { accesstoken: token },
-      success: res=>{
-       if(res.data.success){
-         this.loadData();
-       }else{
-         wx.showToast({
-           icon: 'none',
-           title: res.data.error_msg,
-         })
-       }
+      success: res => {
+        if (res.data.success) {
+          this.loadData();
+        } else {
+          wx.showToast({
+            icon: 'none',
+            title: res.data.error_msg,
+          })
+        }
       },
-      fail: err=>{
+      fail: err => {
         wx.showToast({
           icon: 'none',
           title: '请求发送失败',
         })
       },
-      complete:_=>{
+      complete: _ => {
         wx.hideLoading()
       }
     })
   },
   // 收藏与否
-  toogleCollect(e){
+  toogleCollect(e) {
     var token = app.globalData.my.accessToken;
-    if (!token){
+    if (!token) {
       return wx.showToast({
         icon: 'none',
         title: '请先登录',
@@ -274,28 +276,28 @@ Page({
     wx.request({
       url: !is_collect ? topicCollectionApi() : deleteTopicCollectionApi(),
       method: 'POST',
-      data:{
+      data: {
         accesstoken: token,
         topic_id: this.data.topic_id
       },
-      success:res=>{
-        if(res.data.success){
+      success: res => {
+        if (res.data.success) {
           // this.loadData();
           wx.showToast({
             icon: 'none',
-            title: !is_collect?'收藏成功':'取消收藏',
+            title: !is_collect ? '收藏成功' : '取消收藏',
           })
           this.setData({
-            is_collect:!is_collect
+            is_collect: !is_collect
           })
-        }else{
+        } else {
           wx.showToast({
             icon: 'none',
             title: '收藏失败',
           })
         }
       },
-      fail: err=>{
+      fail: err => {
         wx.showToast({
           icon: 'none',
           title: '收藏失败',
@@ -304,7 +306,7 @@ Page({
     })
   },
   //进入用户详情页
-  toUserDetail(e){
+  toUserDetail(e) {
     var username = e.currentTarget.dataset.name
     wx.navigateTo({
       url: `/pages/user-detail/user-detail?username=${username}`,

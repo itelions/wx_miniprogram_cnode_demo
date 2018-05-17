@@ -10,6 +10,7 @@ App({
     setMyInfoFromStorage({ app:this});
   },
   globalData: {
+    platform: wx.getSystemInfoSync().platform||'unknow',
     userInfo: null,
     my:{
       accessToken:'',
