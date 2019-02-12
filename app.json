@@ -22,6 +22,6 @@
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#80bd01",
     "navigationBarTitleText": "Cnode",
-    "navigationBarTextStyle": "#000"
+    "navigationBarTextStyle": "black"
   }
 }

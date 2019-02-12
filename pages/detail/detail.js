@@ -181,7 +181,7 @@ Page({
   //
   handleReplyAreaFocus() {
     if (this.data.platform !== 'android') return
-    this.setData({ showTypeArea: true });
+    // this.setData({ showTypeArea: true });
     setTimeout(_ => {
       wx.pageScrollTo({
         scrollTop: 1000000,
